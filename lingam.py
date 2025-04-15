@@ -28,7 +28,7 @@ S_ = ica.fit_transform(X_std)
 A_ = ica.mixing_
 W = np.linalg.inv(A_)
 
-# 4. Try all permutations to find a strictly lower-triangular B
+# 4. Try all permutations to find best B.
 best_perm = None
 best_score = np.inf
 B_best = None
