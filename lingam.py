@@ -62,6 +62,7 @@ print(f"Best permutation: {best_perm}")
 print("Estimated Causal Matrix B (after permutation):")
 print(np.round(B_final, 2))
 
+#================== Network Graph ==============================
 import networkx as nx
 
 # 7. Create causal graph from B matrix
