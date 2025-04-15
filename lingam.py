@@ -62,7 +62,27 @@ print(f"Best permutation: {best_perm}")
 print("Estimated Causal Matrix B (after permutation):")
 print(np.round(B_final, 2))
 
+import networkx as nx
+
+# 7. Create causal graph from B matrix
+G = nx.DiGraph()
+var_names = ["X1", "X2", "X3"]
+
+# Add nodes
+#G.add_nodes_from(var_names)
+
+# Add edges (from j to i if B[i, j] != 0 and i != j)
+for i in range(B_final.shape[0]):
+    for j in range(B_final.shape[1]):
+        if i != j and np.abs(B_final[i, j]) > 0:
+            G.add_edge(var_names[j], var_names[i], weight=np.round(B_final[i, j], 2))
+
+# 8. Draw the graph
+pos = nx.spring_layout(G, seed=42)  # You can try shell_layout or kamada_kawai_layout
+edge_labels = nx.get_edge_attributes(G, 'weight')
+
 plt.figure(figsize=(6, 4))
-sns.heatmap(B_final, annot=True, fmt=".2f", cmap="coolwarm", xticklabels=["X1", "X2", "X3"], yticklabels=["X1", "X2", "X3"])
-plt.title("Estimated Causal Influence Matrix B")
+nx.draw(G, pos, with_labels=True, node_size=1500, node_color="skyblue", font_size=12, font_weight="bold", arrows=True)
+nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=10)
+plt.title("Estimated Causal Graph (LiNGAM)")
 plt.show()
