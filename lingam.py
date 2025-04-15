@@ -35,11 +35,19 @@ B_best = None
 
 for perm in itertools.permutations(range(3)):
     P = np.eye(3)[list(perm)]
-    W_perm = P @ W
-    B = W_perm / np.diag(W_perm)[:, None]
+    W_perm = P @ W   # matrix multiplication
+    
+    #B = W_perm / np.diag(W_perm)[:, None]
+    B = W_perm / np.diag(W_perm)[:]
+    
     # Zero diagonal
     B_offdiag = B - np.eye(3)
-    score = np.sum(np.abs(np.triu(B_offdiag, k=0)))  # penalize upper triangular values
+    #score = np.sum(np.abs(np.triu(B_offdiag, k=0)))  # penalize upper triangular values (this is not the best way)
+
+    # Find permutation such that sum of off-diagonals are smallest.  
+    # Usually, this is the best results as the weights are expected to be smaller than 1 if input data are standardized.
+    score = np.sum( np.abs(B_offdiag) ) 
+    
     if score < best_score:
         best_score = score
         best_perm = perm
