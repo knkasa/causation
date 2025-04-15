@@ -35,7 +35,7 @@ B_best = None
 
 for perm in itertools.permutations(range(3)):
     P = np.eye(3)[list(perm)]
-    W_perm = P @ W   # matrix multiplication
+    W_perm = np.matmul(P, W)
     
     #B = W_perm / np.diag(W_perm)[:, None]
     B = W_perm / np.diag(W_perm)[:]
