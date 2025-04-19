@@ -42,7 +42,7 @@ for col in wine.feature_names:
 #est = ExhaustiveSearch(df_binned)
 #model = est.estimate()
 
-# Extimate using Mmhc
+# Extimate using Mmhc (takes long time)
 est = MmhcEstimator(df_binned)
 model = est.estimate()
 
