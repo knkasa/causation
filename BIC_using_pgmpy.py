@@ -89,3 +89,17 @@ plt.show()
 
 '''
 
+#=========== get Bayesian probability ======================
+'''
+from pgmpy.models import BayesianNetwork
+from pgmpy.estimators import BayesianEstimator
+
+# Build BN with learned structure
+model = BayesianNetwork(best_model.edges())
+
+# Learn the CPDs from data
+model.fit(df_binned, estimator=BayesianEstimator)
+
+# Now you can query probabilities
+print(model.get_cpds('some_variable'))
+'''
