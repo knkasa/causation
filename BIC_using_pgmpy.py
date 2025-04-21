@@ -46,6 +46,9 @@ for col in wine.feature_names:
 est = MmhcEstimator(df_binned)
 model = est.estimate()
 
+# Get a list of connected nodes.
+edge_list = model.edges()
+
 g = nx.DiGraph()
 g.add_edges_from(model.edges())
 
