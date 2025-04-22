@@ -1,0 +1,10 @@
+1. Run chi square test to all feature combinations.
+  chi_square(X='A', Y='B', Z=['C', 'D'], data=data, significance_level=0.05)
+2. Once it's done, look for V structure.  
+  If X and Z are marginally independent, but become dependent when we condition on Y, then Y must be a collider, and the edges are oriented as X -> Y <- Z.
+3. Use Meeks rule to orient the rest of diagram.
+  If you have:
+  A → B — C
+  and A and C are not connected
+  → Then orient: B — C as B → C
+  (to avoid creating a new v-structure at B)
