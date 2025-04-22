@@ -24,7 +24,7 @@ for col in wine.feature_names:
 
 # Estimate DAG using PC algorithm
 #est = PC(data=df_binned)
-#model = est.estimate()
+#model = est.estimate(ci_test='chi_square', significance_level=0.05)
 
 # Estimate using Hill climb search(BIC)
 #est = HillClimbSearch(data=df_binned)
