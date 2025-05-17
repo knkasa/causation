@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 # https://medium.com/analytics-vidhya/a-world-of-causal-inference-with-econml-by-microsoft-research-7dd43e97ce09
 # https://qiita.com/yellow_detteiu/items/e0915ef1042a6af49382
 # https://www.salesanalytics.co.jp/datascience/datascience186/
+# sample example https://www.salesanalytics.co.jp/datascience/datascience187/
 #paper https://github.com/grf-labs/grf/?tab=readme-ov-file
 
 np.random.seed(42)
