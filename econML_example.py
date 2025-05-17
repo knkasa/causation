@@ -7,6 +7,7 @@ from econml.dml import CausalForestDML
 import matplotlib.pyplot as plt
 
 # https://medium.com/data-science-collective/what-happened-when-i-put-a-causal-ml-model-to-the-test-514210f3da77
+# https://medium.com/analytics-vidhya/a-world-of-causal-inference-with-econml-by-microsoft-research-7dd43e97ce09
 
 np.random.seed(42)
 
