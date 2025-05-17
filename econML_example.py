@@ -21,6 +21,7 @@ X = np.column_stack([age, education_years, prior_income])
 # People with lower income and less education more likely to attend.
 propensity = 1 / (1 + np.exp(0.01 * prior_income - 0.5 * education_years))
 T = np.random.binomial(1, propensity)
+print("number of treatments [T=0, T=1]:", np.bincount(T))  # Should show both T=0 and T=1
 
 # Create Output data Y with treatment intentionaly included.
 treatment_effect = 2000 + 100 * education_years - 0.05 * prior_income
