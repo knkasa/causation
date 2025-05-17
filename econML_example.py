@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 # https://medium.com/data-science-collective/what-happened-when-i-put-a-causal-ml-model-to-the-test-514210f3da77
 # https://medium.com/analytics-vidhya/a-world-of-causal-inference-with-econml-by-microsoft-research-7dd43e97ce09
 # https://qiita.com/yellow_detteiu/items/e0915ef1042a6af49382
+# https://www.salesanalytics.co.jp/datascience/datascience186/
 
 np.random.seed(42)
 
