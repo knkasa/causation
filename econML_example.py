@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 # https://www.salesanalytics.co.jp/datascience/datascience186/
 # sample example https://www.salesanalytics.co.jp/datascience/datascience187/
 #paper https://github.com/grf-labs/grf/?tab=readme-ov-file
+# parameters https://econml.azurewebsites.net/_autosummary/econml.dml.CausalForestDML.html
 
 np.random.seed(42)
 
@@ -49,6 +50,8 @@ cf = CausalForestDML(
     )
 
 cf.fit(Y_train, T_train, X=X_train)
+
+cf.feature_importance_
 
 # effects show the difference between output(with treatment) - output(not treated)
 effects = cf.effect(X_test)
