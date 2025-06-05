@@ -49,6 +49,7 @@ cf = CausalForestDML(
     cv=cv
     )
 
+cf.tune(Y, T, X=X)
 cf.fit(Y_train, T_train, X=X_train)
 
 cf.feature_importance_
