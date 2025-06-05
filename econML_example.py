@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 # sample example https://www.salesanalytics.co.jp/datascience/datascience187/
 #paper https://github.com/grf-labs/grf/?tab=readme-ov-file
 # parameters https://econml.azurewebsites.net/_autosummary/econml.dml.CausalForestDML.html
+# code example https://saltcooky.hatenablog.com/entry/2024/08/18/172203
 
 np.random.seed(42)
 
