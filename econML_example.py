@@ -55,6 +55,17 @@ cf.tune(Y, T, X=X) # Find hyper parameters.
 print(cf.get_params())
 cf.fit(Y_train, T_train, X=X_train)
 
+'''
+cf.tune(
+    Y, T, X, W=None,
+    params=None,           # Dictionary of parameters to tune
+    cv=3,                  # Number of CV folds
+    scoring=None,          # Scoring function (default: MSE-based)
+    n_jobs=None,           # Parallelization
+    verbose=0              # Verbosity level
+)
+'''
+
 cf.feature_importance_
 
 # effects show the difference between output(with treatment) - output(not treated)
