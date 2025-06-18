@@ -69,6 +69,7 @@ cf.feature_importance_
 
 # effects show the difference between output(with treatment) - output(not treated)
 # Y_res = tau_hat * T_res
+# For continuous treatment, final_effect=effect*delta_treatment
 effects = cf.effect(X_test)
 
 for i in range(5):
