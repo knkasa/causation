@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import StratifiedKFold
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 from econml.dml import CausalForestDML
 import matplotlib.pyplot as plt
 
@@ -41,7 +41,7 @@ cv = StratifiedKFold(n_splits=2, shuffle=True, random_state=42)
 
 cf = CausalForestDML(
     model_y=RandomForestRegressor(n_estimators=100, min_samples_leaf=10),
-    model_t=RandomForestRegressor(n_estimators=100, min_samples_leaf=10),
+    model_t=RandomForestClassifier(n_estimators=100, min_samples_leaf=10),
     discrete_treatment=True,
     n_estimators=100,
     min_samples_leaf=5,
@@ -56,6 +56,7 @@ cf.fit(Y_train, T_train, X=X_train)
 cf.feature_importance_
 
 # effects show the difference between output(with treatment) - output(not treated)
+# Y_res = tau_hat * T_res
 effects = cf.effect(X_test)
 
 for i in range(5):
@@ -64,5 +65,18 @@ for i in range(5):
 plt.hist(effects, bins=30, edgecolor='k')
 plt.title('Estimated Treatment Effects (Job Training on Income)')
 plt.xlabel('Estimated Effect ($)')
+
+# Since we do not know the true values, we can use orthogonality relationship to optimize hyper parameters.
+# The "orthogonal score" should be close to zero if model is well-specified
+def orthogonal_score(cf, Y, T, X, W=None):
+    tau_hat = cf.effect(X)
+    # Compute residuals from nuisance models
+    Y_res = Y - cf._ortho_learner_model_final._model_y.predict(X)
+    T_res = T - cf._ortho_learner_model_final._model_t.predict(X)
+    
+    # Orthogonal score
+    score = Y_res - tau_hat * T_res
+    return np.mean(score**2)
+
 plt.ylabel('Number of Individuals')
 plt.show()
