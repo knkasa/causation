@@ -44,6 +44,7 @@ cf = CausalForestDML(
     model_t=RandomForestClassifier(n_estimators=100, min_samples_leaf=10),
     discrete_treatment=True,
     n_estimators=100,
+    max_depth=5,
     min_samples_leaf=5,
     verbose=0,
     random_state=42,
