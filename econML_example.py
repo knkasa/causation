@@ -72,8 +72,8 @@ plt.xlabel('Estimated Effect ($)')
 def orthogonal_score(cf, Y, T, X, W=None):
     tau_hat = cf.effect(X)
     # Compute residuals from nuisance models
-    Y_res = Y - cf._ortho_learner_model_final._model_y.predict(X)
-    T_res = T - cf._ortho_learner_model_final._model_t.predict(X)
+    Y_res = Y - cf._model_y.predict(X)
+    T_res = T - cf._model_t.predict(X)
     
     # Orthogonal score
     score = Y_res - tau_hat * T_res
