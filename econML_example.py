@@ -51,8 +51,7 @@ cf = CausalForestDML(
     cv=cv
     )
 
-cf.tune(Y, T, X=X) # Find hyper parameters.
-print(cf.get_params())
+cf.tune(Y_train, T_train, X=X_train) # Find hyper parameters.
 cf.fit(Y_train, T_train, X=X_train)
 
 '''
