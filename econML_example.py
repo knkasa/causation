@@ -67,6 +67,7 @@ cf.tune(
 
 cf.feature_importance_
 cf.cate_feature_names()
+cf.shap_values(x_train)  # note your data needs to be float.
 
 # effects show the difference between output(with treatment) - output(not treated)
 # Y_res = tau_hat * T_res
