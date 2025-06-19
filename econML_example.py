@@ -66,6 +66,7 @@ cf.tune(
 '''
 
 cf.feature_importance_
+cf.cate_feature_names()
 
 # effects show the difference between output(with treatment) - output(not treated)
 # Y_res = tau_hat * T_res
