@@ -41,7 +41,7 @@ cv = StratifiedKFold(n_splits=2, shuffle=True, random_state=42)
 
 cf = CausalForestDML(
     model_y=RandomForestRegressor(n_estimators=100, min_samples_leaf=10),
-    model_t=RandomForestClassifier(n_estimators=100, min_samples_leaf=10),
+    model_t=RandomForestClassifier(n_estimators=100, min_samples_leaf=10),  # Note if treatement model performance is too good(due to data leak), it will over predict.
     discrete_treatment=True,
     n_estimators=100,
     max_depth=5,
