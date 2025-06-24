@@ -73,7 +73,7 @@ cf.shap_values(x_train)  # note your data needs to be float.
 # Y_res = tau_hat * T_res
 # For continuous treatment, final_effect=effect*delta_treatment
 effects = cf.effect(X_test, T0=0, T1=1)  # T0 T1 are the values you want to vary for the treatment. Can be a vector of length(X_test). Can be continuous treatment too T0=2.5 T1=3.0
-cf.ate_interval(X_test, T0=0, T1=1)  # yield p values and confidence interval.
+cf.ate_inference(X_test, T0=0, T1=1)  # yield p values and confidence interval.
 
 for i in range(5):
     print(f"Individual {i+1}: Estimated treatment effect = ${effects[i]:.2f}")
