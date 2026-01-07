@@ -6,6 +6,8 @@ from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 from econml.dml import CausalForestDML
 import matplotlib.pyplot as plt
 
+#ATE: averaged all.  ATT: averaged on treated. CATE: averaged on selected users.
+
 # https://medium.com/data-science-collective/what-happened-when-i-put-a-causal-ml-model-to-the-test-514210f3da77
 # https://medium.com/analytics-vidhya/a-world-of-causal-inference-with-econml-by-microsoft-research-7dd43e97ce09
 # https://qiita.com/yellow_detteiu/items/e0915ef1042a6af49382
@@ -96,3 +98,4 @@ def orthogonal_score(cf, Y, T, X, W=None):
 
 plt.ylabel('Number of Individuals')
 plt.show()
+
