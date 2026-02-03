@@ -59,7 +59,7 @@ cf.fit(Y_train, T_train, X=X_train)
 '''
 cf.tune(
     Y, T, X, W=None,
-    params=None,           # Dictionary of parameters to tune
+    params='auto',           # Dictionary of parameters to tune
     cv=3,                  # Number of CV folds
     scoring=None,          # Scoring function (default: MSE-based)
     n_jobs=None,           # Parallelization
@@ -98,4 +98,5 @@ def orthogonal_score(cf, Y, T, X, W=None):
 
 plt.ylabel('Number of Individuals')
 plt.show()
+
 
